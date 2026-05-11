@@ -103,6 +103,7 @@ const SpotRate = () => {
     const hasPulse = dir !== "neutral";
 
     return (
+      
       <Box
         sx={{
           position: "relative",

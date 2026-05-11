@@ -16,6 +16,7 @@ import mainLogo from "/images/logo.svg";
 import WorldClockHorizontal from "../components/WorldClock";
 import SystemClock from "../components/SystemClock";
 import PoweredByAurify from "../components/PoweredByAurify";
+import ImageSlide from "../components/ImageSlide";
 
 function TvScreen() {
   const [showLimitModal, setShowLimitModal] = useState(false);
@@ -280,6 +281,7 @@ function TvScreen() {
           <SystemClock />
           <SpotRate />
           <PoweredByAurify />
+          {/* <ImageSlide /> */}
         </Grid>
 
         <Grid

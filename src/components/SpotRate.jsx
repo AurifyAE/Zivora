@@ -108,7 +108,7 @@ const SpotRate = () => {
           position: "relative",
           flex: 1,
           mb: "1vw",
-
+          fontVariantNumeric: "tabular-nums",
           overflow: "hidden",
           ...(hasPulse && {
             animation:
@@ -188,7 +188,7 @@ const SpotRate = () => {
           background: "#aa8a4b11",
           padding: { xs: " 2vw 3vw", sm: " 0.5vw 2vw", md: "1vw 1vw" },
           position: "relative",
-          boxShadow: '0px 0px 25px  rgba(69, 79, 170, 0.25)  inset',
+          boxShadow: "0px 0px 25px  rgba(69, 79, 170, 0.25)  inset",
 
           overflow: "hidden",
           display: "grid",
@@ -256,7 +256,7 @@ const SpotRate = () => {
         alignItems: "end",
         marginTop: {
           xs: "20px", // mobile
-          sm: "0vw", // small tablets
+          sm: "2vw", // small tablets
         },
         gridTemplateColumns: { xs: "1fr" },
       }}

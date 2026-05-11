@@ -4,7 +4,15 @@ body {
   height: 100vh;
   padding: "50px 50px";
 }
-
+* {
+  font-family: "Scaver", sans-serif !important;
+}
+@font-face {
+  font-family: "Scaver";
+  src: url("./fonts/ScaverRegular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 #root {
   margin: 0 auto;
   text-align: center;
@@ -77,4 +85,3 @@ body {
     height: 100%;
   }
 }
- 

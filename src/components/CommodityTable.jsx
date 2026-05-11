@@ -118,7 +118,7 @@ const CommodityTable = ({ title, items }) => {
 
           backdropFilter: "blur(0.3vw)",
           border: "0.1vw solid #eee2d73d",
-          boxShadow: '0px 0px 25px rgba(69, 79, 170, 0.25) inset',
+          boxShadow: "0px 0px 25px rgba(69, 79, 170, 0.25) inset",
 
           margin: ".4vw",
         }}
@@ -191,7 +191,7 @@ const CommodityTable = ({ title, items }) => {
       <Box
         sx={{
           mt: "1vw",
-          maxHeight: { xs: "auto", sm: "20vw" },
+          maxHeight: { xs: "auto", sm: "28vw" },
         }}
       >
         {rows.length === 0 ? (
@@ -208,23 +208,23 @@ const CommodityTable = ({ title, items }) => {
         ) : (
           <Swiper
             direction="vertical"
-            slidesPerView={5}
+            slidesPerView={8}
             loop={true}
-            modules={[Autoplay]} // 👈 Register it here
-            autoplay={{
-              delay: 0,
-              disableOnInteraction: false,
-            }}
+            // modules={[Autoplay]}
+            // autoplay={{
+            //   delay: 0,
+            //   disableOnInteraction: false,
+            // }}
             speed={3000} // 👈 higher = smoother slow scroll
             // allowTouchMove={false} // important for TV
             style={{
-              height: isMobile ? "35vw" : "20vw",
+              height: isMobile ? "35vw" : "28vw",
 
               backdropFilter: "blur(5px)",
               background: "#aa8a4b15",
               borderRadius: "1vw",
               border: "0.1vw solid #eee2d73d",
-              boxShadow: '0px 0px 25px  rgba(69, 79, 170, 0.25)  inset',
+              boxShadow: "0px 0px 25px  rgba(69, 79, 170, 0.25)  inset",
               margin: ".4vw",
             }}
           >
@@ -262,7 +262,7 @@ const CommodityTable = ({ title, items }) => {
                       },
                     }}
                   >
-                    {row.metal}
+                    {row.metal == "Gold Ten TOLA" ? "TTB" : row.metal}
                     <Typography
                       sx={{
                         // fontSize: "1vw",
@@ -276,7 +276,7 @@ const CommodityTable = ({ title, items }) => {
                         // mb:'-0.5vw'
                       }}
                     >
-                      {row.purity}
+                      {row.metal == "Minted Bar" ? "" : row.purity}
                     </Typography>
                   </Typography>
 
@@ -303,6 +303,8 @@ const CommodityTable = ({ title, items }) => {
                         lg: "1.5vw",
                         xl: "1.4vw",
                       },
+                      fontVariantNumeric: "tabular-nums",
+
                       fontWeight: 600,
                       color: "#fff", // soft pink ASK
                     }}
@@ -318,6 +320,8 @@ const CommodityTable = ({ title, items }) => {
                         lg: "1.5vw",
                         xl: "1.4vw",
                       },
+                      fontVariantNumeric: "tabular-nums",
+
                       fontWeight: 600,
                       color: "#fff", // soft pink ASK
                     }}

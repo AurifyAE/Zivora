@@ -103,7 +103,7 @@ const SpotRate = () => {
     const hasPulse = dir !== "neutral";
 
     return (
-      
+
       <Box
         sx={{
           position: "relative",
@@ -257,7 +257,7 @@ const SpotRate = () => {
         alignItems: "end",
         marginTop: {
           xs: "20px", // mobile
-          sm: "2vw", // small tablets
+          sm: ".5vw", // small tablets
         },
         gridTemplateColumns: { xs: "1fr" },
       }}

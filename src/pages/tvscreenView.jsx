@@ -12,7 +12,7 @@ import {
 } from "../api/api";
 import io from "socket.io-client";
 import { useSpotRate } from "../context/SpotRateContext";
-import mainLogo from "/images/logo.svg";
+import mainLogo from "/images/logo.png";
 import WorldClockHorizontal from "../components/WorldClock";
 import SystemClock from "../components/SystemClock";
 import PoweredByAurify from "../components/PoweredByAurify";
@@ -233,7 +233,6 @@ function TvScreen() {
             objectFit: "cover",
           }}
         />
-       
       </Box>
 
       {/* Grid */}
@@ -272,7 +271,8 @@ function TvScreen() {
             <img src={mainLogo} alt="" className="object-contain w-full" />
           </Box>
 
-          <CommodityTable items={commodities} />
+          <CommodityTable commodities={commodities} isCommodity={true} />
+          <CommodityTable commodities={commodities} isMintedBar={true} />
         </Grid>
 
         {/* Side: SpotRate & Date Time */}

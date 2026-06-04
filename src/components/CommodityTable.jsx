@@ -121,7 +121,7 @@ const CommodityTable = ({
         const ask =
           (askRate / 31.1035) * AED * multiplier * item.unit * purity +
           Number(item.sellCharge || 0);
- 
+
         return {
           group: item.group,
           name:
@@ -147,6 +147,12 @@ const CommodityTable = ({
 
   const mintedBarData = data.filter((item) => item.group === "group1");
 
+
+  // -----table height---
+  const tableHeight = isMobile ? "35vw" : "18vw";
+  // -----table items number---
+  const tableItemsNumber = isMobile ? 6: 5;
+
   /* -----------------------
      TABLE COMPONENT
   ------------------------ */
@@ -159,7 +165,7 @@ const CommodityTable = ({
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "1.4fr 0.8fr 0.8fr 0.8fr",
+            gridTemplateColumns: title === 'Commodity' ? "1.4fr 0.8fr 0.8fr 0.8fr" : "1.4fr 0.8fr   0.8fr",
             py: "0.9vw",
             px: "1.5vw",
             alignItems: "end",
@@ -207,20 +213,23 @@ const CommodityTable = ({
             UNIT
           </Typography>
 
-          <Typography
-            sx={{
-              fontSize: {
-                xs: "14px",
-                lg: "1.2vw",
-                xl: "1.3vw",
-              },
-              fontWeight: 600,
-              color: "#fff",
-              textAlign: "center",
-            }}
-          >
-            BUY AED
-          </Typography>
+          {title === 'Commodity' &&
+
+            <Typography
+              sx={{
+                fontSize: {
+                  xs: "14px",
+                  lg: "1.2vw",
+                  xl: "1.3vw",
+                },
+                fontWeight: 600,
+                color: "#fff",
+                textAlign: "center",
+              }}
+            >
+              BUY AED
+            </Typography>
+          }
 
           <Typography
             sx={{
@@ -241,8 +250,7 @@ const CommodityTable = ({
 
         <Box
           sx={{
-            mt: "1vw",
-            maxHeight: { xs: "auto", sm: "28vw" },
+            maxHeight: tableHeight,
           }}
         >
           {rows.length === 0 ? (
@@ -259,17 +267,17 @@ const CommodityTable = ({
           ) : (
             <Swiper
               direction="vertical"
-              slidesPerView={3}
-              loop={true}
-              modules={[Autoplay]}
-              autoplay={{
-                delay: 0,
-                disableOnInteraction: false,
-              }}
+              slidesPerView={tableItemsNumber}
+              // loop={true}
+              // modules={[Autoplay]}
+              // autoplay={{
+              //   delay: 0,
+              //   disableOnInteraction: false,
+              // }}
               speed={3000} // 👈 higher = smoother slow scroll
               // allowTouchMove={false} // important for TV
               style={{
-                height: isMobile ? "35vw" : "12vw",
+                height: tableHeight,
 
                 backdropFilter: "blur(5px)",
                 background: "#aa8a4b15",
@@ -285,7 +293,7 @@ const CommodityTable = ({
                     key={index}
                     sx={{
                       display: "grid",
-                      gridTemplateColumns: "1.4fr 0.8fr 0.8fr 0.8fr",
+                      gridTemplateColumns: title === 'Commodity' ? "1.4fr 0.8fr 0.8fr 0.8fr" : "1.4fr 0.8fr   0.8fr",
                       alignItems: "center",
                       py: ".7vw",
                       px: "1.5vw",
@@ -344,23 +352,26 @@ const CommodityTable = ({
                     >
                       {row.weight}
                     </Typography>
+                    {title === 'Commodity' &&
 
-                    <Typography
-                      sx={{
-                        // fontSize: "1.32vw",
-                        fontSize: {
-                          xs: "14px",
-                          lg: "1.5vw",
-                          xl: "1.4vw",
-                        },
-                        fontVariantNumeric: "tabular-nums",
 
-                        fontWeight: 600,
-                        color: "#fff", // soft pink ASK
-                      }}
-                    >
-                      {formatPrice(row.bid)}
-                    </Typography>
+                      <Typography
+                        sx={{
+                          // fontSize: "1.32vw",
+                          fontSize: {
+                            xs: "14px",
+                            lg: "1.5vw",
+                            xl: "1.4vw",
+                          },
+                          fontVariantNumeric: "tabular-nums",
+
+                          fontWeight: 600,
+                          color: "#fff", // soft pink ASK
+                        }}
+                      >
+                        {formatPrice(row.bid)}
+                      </Typography>
+                    }
 
                     <Typography
                       sx={{
@@ -384,7 +395,7 @@ const CommodityTable = ({
             </Swiper>
           )}
         </Box>
-      </Box>
+      </Box >
     );
   };
 

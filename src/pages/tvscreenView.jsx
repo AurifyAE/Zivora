@@ -126,7 +126,7 @@ function TvScreen() {
         socket.emit("request-data", symbols);
       });
 
-      socket.on("disconnect", () => {});
+      socket.on("disconnect", () => { });
 
       // socket.on("market-data", (data) => {
       //   if (data && data.symbol) {
@@ -261,15 +261,7 @@ function TvScreen() {
           padding="1vw"
           gap="1vw"
         >
-          <Box
-            sx={{
-              height: "auto",
-              width: { xs: "40vw", sm: "20vw" },
-              marginBottom: { xs: "20px", sm: "0vw" },
-            }}
-          >
-            <img src={mainLogo} alt="" className="object-contain w-full" />
-          </Box>
+
 
           <CommodityTable commodities={commodities} isCommodity={true} />
           <CommodityTable commodities={commodities} isMintedBar={true} />
@@ -277,8 +269,18 @@ function TvScreen() {
 
         {/* Side: SpotRate & Date Time */}
         <Grid xs={12} md={6} padding="1vw" gap="1vw" display="grid">
-          <WorldClockHorizontal />
+          <Box
+            sx={{
+              height: "auto",
+              width: { xs: "40vw", sm: "20vw" },
+              marginBottom: { xs: "20px", sm: "0vw" },
+              mx:'auto'
+            }}
+          >
+            <img src={mainLogo} alt="" className="object-contain w-full" />
+          </Box>
           <SystemClock />
+          <WorldClockHorizontal />
           <SpotRate />
           <PoweredByAurify />
           {/* <ImageSlide /> */}

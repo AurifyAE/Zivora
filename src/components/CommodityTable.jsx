@@ -24,7 +24,6 @@ const CommodityTable = ({
   isCommodity = false,
 }) => {
   const { goldData, silverData } = useSpotRate();
-  console.log("Gold Widget Data", goldData);
 
   /* -----------------------
      HELPERS
@@ -268,12 +267,13 @@ const CommodityTable = ({
             <Swiper
               direction="vertical"
               slidesPerView={tableItemsNumber}
-              // loop={true}
-              // modules={[Autoplay]}
-              // autoplay={{
-              //   delay: 0,
-              //   disableOnInteraction: false,
-              // }}
+              loop={true}
+              modules={[Autoplay]}
+              autoplay={{
+                delay: 0,
+                disableOnInteraction: false,
+              }}
+              initialSlide={0}
               speed={3000} // 👈 higher = smoother slow scroll
               // allowTouchMove={false} // important for TV
               style={{
